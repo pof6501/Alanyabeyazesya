@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alanya Beyaz Eşya Tamir Hizmeti | Tüm Beyaz Eşyalarınız İçin Tamir Çözümleri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #0d8b5c 0%, #0a6b48 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #ffcc00;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b35;
+            color: white;
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid #ff6b35;
+        }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: #ff6b35;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #0d8b5c;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: #ff6b35;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: #0d8b5c;
+            color: white;
+            font-size: 40px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #0d8b5c;
+        }
+        
+        /* Brands Section */
+        .brands {
+            padding: 60px 0;
+            background: #f0f8f4;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 25px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .brand-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            font-weight: 600;
+            color: #0d8b5c;
+            width: 100%;
+            max-width: 150px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f0f8f4;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: #0d8b5c;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature i {
+            color: #0d8b5c;
+            font-size: 22px;
+            margin-right: 10px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Alanya Section */
+        .alanya {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(13, 139, 92, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+        }
+        
+        .alanya-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .alanya-image {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 40px;
+        }
+        
+        .alanya-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .alanya-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .alanya-text h2 {
+            font-size: 36px;
+            color: #0d8b5c;
+            margin-bottom: 20px;
+        }
+        
+        .alanya-text p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f0f8f4;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h2 {
+            font-size: 36px;
+            color: #0d8b5c;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail i {
+            background: #0d8b5c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        /* Fixed Contact Buttons */
+        .fixed-contact-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .fixed-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .fixed-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .phone-button {
+            background: #0d8b5c;
+        }
+        
+        .whatsapp-button {
+            background: #25D366;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background: #ff6b35;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links li a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 15px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #0d8b5c;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-active li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .about-text, .about-image, .alanya-text, .alanya-image {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .alanya-image {
+                margin-right: 0;
+            }
+            
+            .fixed-contact-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .fixed-button {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 26px;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+                <span class="logo-text">Alanya Beyaz Eşya Tamiri</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#services">Hizmetlerimiz</a></li>
+                    <li><a href="#brands">Markalar</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Alanya'da Tüm Beyaz Eşyalarınız İçin Tamir Hizmeti</h1>
+            <p>Klima, buzdolabı, çamaşır makinesi, fırın ve daha fazlası için Alanya'nın güvenilir tamir uzmanı. Hızlı ve garantili çözümler.</p>
+            <a href="#contact" class="cta-button">Hemen İletişime Geçin</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tamir Hizmetlerimiz</h2>
+                <p>Alanya'da tüm beyaz eşya arızalarınız için uzman çözümler sunuyoruz. Deneyimli ekibimiz ile her türlü sorunu çözüyoruz.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Buzdolabı Tamiri</h3>
+                        <p>Soğutmama, aşırı soğutma, buzlanma, sesli çalışma gibi tüm buzdolabı arızalarında uzman tamir hizmeti. Her marka buzdolabı için onarım.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Klima Tamiri</h3>
+                        <p>Soğutmama, ısıtmama, su damlatma, ses yapma gibi klima arızalarında profesyonel tamir hizmeti. Bakım ve gaz dolum işlemleri.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Çamaşır Makinesi Tamiri</h3>
+                        <p>Su almama, su tahliye etmeme, dönmeme, ses yapma gibi çamaşır makinesi arızalarında hızlı ve garantili tamir hizmeti.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Fırın & Ocak Tamiri</h3>
+                        <p>Isıtmama, dengesiz pişirme, ısı ayar sorunları, elektronik panel arızaları gibi fırın ve ocak problemlerinde tamir hizmeti.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-blender"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Bulaşık Makinesi Tamiri</h3>
+                        <p>Su almama, temizlememe, ısıtmama, su tahliye sorunları gibi bulaşık makinesi arızalarında profesyonel çözümler.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diğer Beyaz Eşyalar</h3>
+                        <p>Mini bar, davlumbaz, kurutma makinesi, şofben gibi diğer tüm beyaz eşyalarınızın tamir ve bakım işlemleri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hizmet Verdiğimiz Markalar</h2>
+                <p>Tüm yerli ve yabancı markaların beyaz eşyaları için tamir hizmeti sunuyoruz.</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">Arçelik</div>
+                <div class="brand-item">Beko</div>
+                <div class="brand-item">Vestel</div>
+                <div class="brand-item">Bosch</div>
+                <div class="brand-item">Siemens</div>
+                <div class="brand-item">Profilo</div>
+                <div class="brand-item">Samsung</div>
+                <div class="brand-item">LG</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Alanya'nın Güvenilir Beyaz Eşya Tamircisi</h2>
+                    <p>Alanya'da 15 yılı aşkın süredir beyaz eşya tamir hizmeti veriyoruz. Müşteri memnuniyetini ön planda tutarak, kaliteli ve ekonomik çözümler sunuyoruz.</p>
+                    <p>Özel servis olarak, yetkili servislere göre daha hızlı ve ekonomik çözümler sunmaktayız. Tüm işlemlerimiz garanti kapsamındadır.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Uzman Teknik Ekip</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hızlı Müdahale</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Garantili İşçilik</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Uygun Fiyatlar</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beyaz Eşya Tamiri">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alanya Section -->
+    <section class="alanya">
+        <div class="container">
+            <div class="alanya-container">
+                <div class="alanya-image">
+                    <img src="https://images.unsplash.com/photo-1591808212943-ea6b01edb6d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Alanya Manzarası">
+                </div>
+                <div class="alanya-text">
+                    <h2>Alanya'nın Her Noktasında Hizmetinizdeyiz</h2>
+                    <p>Alanya'nın tüm mahallelerinde hızlı servis hizmeti sunuyoruz. Aynı gün tamir imkanı ile sorunlarınıza anında çözüm buluyoruz.</p>
+                    <p>Alanya merkez, Mahmutlar, Kestel, Tosmur, Oba, Avsallar, Konaklı, İncekum ve tüm çevre mahallelerde profesyonel beyaz eşya tamir hizmeti veriyoruz.</p>
+                    <p>Ev, ofis, işyeri, villa, otel ve tatil sitelerinde bulunan tüm beyaz eşyalarınız için uzman ekibimizle hizmetinizdeyiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>İletişim Bilgileri</h2>
+                <p>Beyaz eşyalarınızda sorun mu var? Hemen bizi arayın veya WhatsApp'tan yazın. Alanya'nın her yerinden hızlı servis.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Bize Ulaşın</h2>
+                    <p>Alanya'nın her bölgesinden gelen çağrıları hızlıca değerlendirip, en kısa sürede sorununuzu çözüme kavuşturuyoruz.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h3>Telefon Numaramız</h3>
+                                <p style="font-size: 22px; font-weight: bold; color: #0d8b5c;">0545 522 12 14</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Çalışma Saatleri</h3>
+                                <p>Pazartesi - Cumartesi: 08:00 - 22:00<br>Pazar: 09:00 - 20:00</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Hizmet Bölgemiz</h3>
+                                <p>Alanya ve Tüm Çevre Mahalleler</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Not:</strong> "Teknik servis" kelimesi kullanmıyoruz. Beyaz eşya tamir, onarım ve bakım hizmetleri sunuyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed Contact Buttons -->
+    <div class="fixed-contact-buttons">
+        <a href="tel:05455221214" class="fixed-button phone-button">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/905455221214?text=Alanya%20beyaz%20eşya%20tamir%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum" target="_blank" class="fixed-button whatsapp-button">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Alanya Beyaz Eşya Tamiri</h3>
+                    <p>Alanya'nın güvenilir beyaz eşya tamir uzmanı. Klima, buzdolabı, çamaşır makinesi, fırın ve tüm beyaz eşyalarınız için profesyonel çözümler.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Ana Sayfa</a></li>
+                        <li><a href="#services">Hizmetlerimiz</a></li>
+                        <li><a href="#brands">Markalar</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>İletişim</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> 0545 522 12 14</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Alanya ve Tüm Çevre Mahalleler</li>
+                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Her gün 08:00 - 22:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Alanya Beyaz Eşya Tamir Hizmeti. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('nav-active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('nav-active');
+                }
+            });
+        });
+        
+        // Add WhatsApp message function
+        function sendWhatsApp() {
+            const phoneNumber = "905455221214";
+            const message = "Alanya beyaz eşya tamir hizmeti hakkında bilgi almak istiyorum.";
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
