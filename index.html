@@ -89,14 +89,25 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
+        /* Hero Section - GÜNCELLENDİ */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             color: white;
             padding: 100px 0;
             text-align: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
         }
         
         .hero h1 {
@@ -129,7 +140,7 @@
             color: #ff6b35;
         }
         
-        /* Services Section */
+        /* Services Section - GÜNCELLENDİ (görseller eklendi) */
         .services {
             padding: 80px 0;
         }
@@ -181,6 +192,7 @@
         
         .service-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .service-icon {
@@ -191,6 +203,44 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-icon:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+        }
+        
+        .refrigerator .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1571175443880-49e1d1b5d16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+        
+        .air-conditioner .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1562976540-7efae4d8256a?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80');
+        }
+        
+        .washing-machine .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+        
+        .oven .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+        
+        .dishwasher .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+        }
+        
+        .other-appliances .service-icon:after {
+            background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
         }
         
         .service-content {
@@ -227,9 +277,15 @@
             color: #0d8b5c;
             width: 100%;
             max-width: 150px;
+            transition: transform 0.3s;
         }
         
-        /* About Section */
+        .brand-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section - GÜNCELLENDİ (görsel eklendi) */
         .about {
             padding: 80px 0;
             background: #f0f8f4;
@@ -279,15 +335,23 @@
         .about-image {
             flex: 1;
             min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .about-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
         }
         
-        /* Alanya Section */
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Alanya Section - GÜNCELLENDİ (görsel eklendi) */
         .alanya {
             padding: 80px 0;
             background: linear-gradient(135deg, rgba(13, 139, 92, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
@@ -303,12 +367,20 @@
             flex: 1;
             min-width: 300px;
             margin-right: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .alanya-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .alanya-image:hover img {
+            transform: scale(1.05);
         }
         
         .alanya-text {
@@ -400,11 +472,12 @@
             font-size: 28px;
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .fixed-button:hover {
             transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
         
         .phone-button {
@@ -512,11 +585,16 @@
             .hero p {
                 font-size: 18px;
             }
+            
+            .hero-content {
+                padding: 30px;
+            }
         }
         
         @media (max-width: 768px) {
             .hero {
                 padding: 70px 0;
+                min-height: 70vh;
             }
             
             .hero h1 {
@@ -551,6 +629,10 @@
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 26px;
+            }
+            
+            .hero-content {
+                padding: 20px;
             }
             
             .cta-button {
@@ -591,16 +673,18 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - GÜNCELLENDİ -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Alanya'da Tüm Beyaz Eşyalarınız İçin Tamir Hizmeti</h1>
-            <p>Klima, buzdolabı, çamaşır makinesi, fırın ve daha fazlası için Alanya'nın güvenilir tamir uzmanı. Hızlı ve garantili çözümler.</p>
-            <a href="#contact" class="cta-button">Hemen İletişime Geçin</a>
+            <div class="hero-content">
+                <h1>Alanya'da Tüm Beyaz Eşyalarınız İçin Tamir Hizmeti</h1>
+                <p>Klima, buzdolabı, çamaşır makinesi, fırın ve daha fazlası için Alanya'nın güvenilir tamir uzmanı. Hızlı ve garantili çözümler.</p>
+                <a href="#contact" class="cta-button">Hemen İletişime Geçin</a>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section - GÜNCELLENDİ -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-title">
@@ -608,7 +692,7 @@
                 <p>Alanya'da tüm beyaz eşya arızalarınız için uzman çözümler sunuyoruz. Deneyimli ekibimiz ile her türlü sorunu çözüyoruz.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card refrigerator">
                     <div class="service-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
@@ -617,7 +701,7 @@
                         <p>Soğutmama, aşırı soğutma, buzlanma, sesli çalışma gibi tüm buzdolabı arızalarında uzman tamir hizmeti. Her marka buzdolabı için onarım.</p>
                     </div>
                 </div>
-                <div class="service-card">
+                <div class="service-card air-conditioner">
                     <div class="service-icon">
                         <i class="fas fa-wind"></i>
                     </div>
@@ -626,7 +710,7 @@
                         <p>Soğutmama, ısıtmama, su damlatma, ses yapma gibi klima arızalarında profesyonel tamir hizmeti. Bakım ve gaz dolum işlemleri.</p>
                     </div>
                 </div>
-                <div class="service-card">
+                <div class="service-card washing-machine">
                     <div class="service-icon">
                         <i class="fas fa-tshirt"></i>
                     </div>
@@ -635,7 +719,7 @@
                         <p>Su almama, su tahliye etmeme, dönmeme, ses yapma gibi çamaşır makinesi arızalarında hızlı ve garantili tamir hizmeti.</p>
                     </div>
                 </div>
-                <div class="service-card">
+                <div class="service-card oven">
                     <div class="service-icon">
                         <i class="fas fa-fire"></i>
                     </div>
@@ -644,7 +728,7 @@
                         <p>Isıtmama, dengesiz pişirme, ısı ayar sorunları, elektronik panel arızaları gibi fırın ve ocak problemlerinde tamir hizmeti.</p>
                     </div>
                 </div>
-                <div class="service-card">
+                <div class="service-card dishwasher">
                     <div class="service-icon">
                         <i class="fas fa-blender"></i>
                     </div>
@@ -653,7 +737,7 @@
                         <p>Su almama, temizlememe, ısıtmama, su tahliye sorunları gibi bulaşık makinesi arızalarında profesyonel çözümler.</p>
                     </div>
                 </div>
-                <div class="service-card">
+                <div class="service-card other-appliances">
                     <div class="service-icon">
                         <i class="fas fa-tv"></i>
                     </div>
@@ -686,7 +770,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section - GÜNCELLENDİ -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-container">
@@ -715,18 +799,18 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beyaz Eşya Tamiri">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beyaz Eşya Tamiri">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Alanya Section -->
+    <!-- Alanya Section - GÜNCELLENDİ -->
     <section class="alanya">
         <div class="container">
             <div class="alanya-container">
                 <div class="alanya-image">
-                    <img src="https://images.unsplash.com/photo-1591808212943-ea6b01edb6d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Alanya Manzarası">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Beyaz Eşya Tamiri Alanya">
                 </div>
                 <div class="alanya-text">
                     <h2>Alanya'nın Her Noktasında Hizmetinizdeyiz</h2>
